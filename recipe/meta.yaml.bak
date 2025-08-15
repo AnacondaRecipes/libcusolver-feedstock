@@ -38,8 +38,8 @@ requirements:
 outputs:
   - name: libcusolver
     build:
-      runpath_whitelist:  # [linux]
-        - $ORIGIN  # [linux]
+      runpath_whitelist:
+        - $ORIGIN
       # Repacked binaries on linux aarch64 have flag DT_TLSDESC (GNU_HASH),
       # which is not supported by LIEF and can raise ValueError during
       # overlinking checks. Use specific patterns from files section.
@@ -100,15 +100,6 @@ outputs:
 
   - name: libcusolver-dev
     build:
-      runpath_whitelist:  # [linux]
-        - $ORIGIN  # [linux]
-      # Repacked binaries on linux aarch64 have flag DT_TLSDESC (GNU_HASH),
-      # which is not supported by LIEF and can raise ValueError during
-      # overlinking checks. Use specific patterns from files section.
-      overlinking_ignore_patterns:  # [linux and aarch64]
-        - "targets/sbsa-linux/lib/{{ name }}*.so*"  # [linux and aarch64]
-        - "targets/sbsa-linux/lib/stubs/{{ name }}*.so*"  # [linux and aarch64]
-        - "lib/{{ name }}*.so*"  # [linux and aarch64]
       binary_relocation: false
       run_exports:
         - {{ pin_subpackage("libcusolver", max_pin="x") }}
