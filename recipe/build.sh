@@ -38,3 +38,16 @@ for i in `ls`; do
         cp -rv $i ${PREFIX}/${targetsDir}/${component_name}
     fi
 done
+
+# Fix RPATH for all shared libraries
+if [[ $target_platform == linux-* ]]; then
+    for lib in $PREFIX/lib/*.so*; do
+        if [ -f "$lib" ] && [ ! -L "$lib" ]; then
+            if file "$lib" | grep -q "ELF"; then
+                echo "Fixing RPATH for: $(basename $lib)"
+                patchelf --remove-rpath "$lib" 2>/dev/null || true
+                patchelf --force-rpath --set-rpath '$ORIGIN' "$lib"
+            fi
+        fi
+    done
+fi
