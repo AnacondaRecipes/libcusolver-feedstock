@@ -13,35 +13,21 @@ Package license: [LicenseRef-NVIDIA-End-User-License-Agreement](https://docs.nvi
 
 Summary: CUDA Linear Solver Library
 
+Documentation: https://docs.nvidia.com/cuda/cusolver/index.html
+
+cuSOLVER - Direct Linear Solvers on NVIDIA GPUs
+
+
+About libcusolver
+-----------------
+
+Home: https://developer.nvidia.com/cusolver
+
+Package license: [LicenseRef-NVIDIA-End-User-License-Agreement](https://docs.nvidia.com/cuda/eula/index.html)
+
+Summary: CUDA Linear Solver Library
+
 Documentation: https://docs.nvidia.com/cuda/cusolver/
-
-cuSOLVER - Direct Linear Solvers on NVIDIA GPUs
-
-
-About libcusolver-static
-------------------------
-
-Home: https://developer.nvidia.com/cusolver
-
-Package license: [LicenseRef-NVIDIA-End-User-License-Agreement](https://docs.nvidia.com/cuda/eula/index.html)
-
-Summary: CUDA Linear Solver Library
-
-Documentation: https://docs.nvidia.com/cuda/cusolver/index.html
-
-cuSOLVER - Direct Linear Solvers on NVIDIA GPUs
-
-
-About libcusolver-dev
----------------------
-
-Home: https://developer.nvidia.com/cusolver
-
-Package license: [LicenseRef-NVIDIA-End-User-License-Agreement](https://docs.nvidia.com/cuda/eula/index.html)
-
-Summary: CUDA Linear Solver Library
-
-Documentation: https://docs.nvidia.com/cuda/cusolver/index.html
 
 cuSOLVER - Direct Linear Solvers on NVIDIA GPUs
 
@@ -75,13 +61,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19080&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libcusolver-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19080&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/libcusolver-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -222,5 +201,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@conda-forge/cuda](https://github.com/conda-forge/cuda/)
+* [@conda-forge/cuda](https://github.com/orgs/conda-forge/teams/cuda/)
 
