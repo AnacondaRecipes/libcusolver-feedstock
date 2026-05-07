@@ -1,6 +1,6 @@
 {% set name = "libcusolver" %}
-{% set version = "12.0.9.81" %}
-{% set cuda_version = "13.1" %}
+{% set version = "12.2.0.1" %}
+{% set cuda_version = "13.2" %}
 {% set platform = "linux-x86_64" %}  # [linux64]
 {% set platform = "linux-sbsa" %}  # [aarch64]
 {% set platform = "windows-x86_64" %}  # [win]
@@ -16,9 +16,9 @@ package:
 
 source:
   url: https://developer.download.nvidia.com/compute/cuda/redist/{{ name }}/{{ platform }}/{{ name }}-{{ platform }}-{{ version }}-archive.{{ extension }}
-  sha256: 6c2ebd7c8d47bd732988c457f645f3e910a7e44883bcc4220cb0ae4ab2197c42  # [linux64]
-  sha256: 9023fcaef2e7e370b6f94a959fee2c3340d73e4a4d38178061a63f064fd9be15  # [aarch64]
-  sha256: fc8ed4820cb1064cc07fbef2cc78d8c45178909f754bea02852668cd002411f4  # [win]
+  sha256: 893b5b81527626e96b1adf7d3c6733d39d6e058b250e414bb9ca36c41a8c7081  # [linux64]
+  sha256: 6657f5d0aea0d343498bed32eb0da21bb58ad625a32acb616089c10ad2a73662  # [aarch64]
+  sha256: e558137bf62f2f69fed51e93cf11a917e4e2f2a9e5a8ef731840d201a634969c  # [win]
 
 build:
   number: 0
@@ -39,8 +39,8 @@ outputs:
       binary_relocation: false
       missing_dso_whitelist:
         # Needed for rpath issues with conda-build and use of --error-overlinking command-line argument
-        - '$RPATH/libgcc_s.so.1'  # [linux]
-        - '$RPATH/libstdc++.so.6'  # [linux]
+        - "*libgcc_s.so.*"  # [linux]
+        - "*libstdc++.so.*"  # [linux]
     files:
       - lib/libcusolver*.so.*                            # [linux]
       - targets/{{ target_name }}/lib/libcusolver*.so.*  # [linux]
@@ -86,6 +86,7 @@ outputs:
       license_file: LICENSE
       license: LicenseRef-NVIDIA-End-User-License-Agreement
       license_url: https://docs.nvidia.com/cuda/eula/index.html
+      license_family: Other
       summary: CUDA Linear Solver Library
       description: |
         cuSOLVER - Direct Linear Solvers on NVIDIA GPUs
@@ -151,6 +152,7 @@ outputs:
       license_file: LICENSE
       license: LicenseRef-NVIDIA-End-User-License-Agreement
       license_url: https://docs.nvidia.com/cuda/eula/index.html
+      license_family: Other
       summary: CUDA Linear Solver Library
       description: |
         cuSOLVER - Direct Linear Solvers on NVIDIA GPUs
@@ -191,6 +193,7 @@ outputs:
       license_file: LICENSE
       license: LicenseRef-NVIDIA-End-User-License-Agreement
       license_url: https://docs.nvidia.com/cuda/eula/index.html
+      license_family: Other
       summary: CUDA Linear Solver Library
       description: |
         cuSOLVER - Direct Linear Solvers on NVIDIA GPUs
@@ -202,6 +205,7 @@ about:
   license_file: LICENSE
   license: LicenseRef-NVIDIA-End-User-License-Agreement
   license_url: https://docs.nvidia.com/cuda/eula/index.html
+  license_family: Other
   summary: CUDA Linear Solver Library
   description: |
     cuSOLVER - Direct Linear Solvers on NVIDIA GPUs
@@ -209,8 +213,6 @@ about:
   dev_url: https://docs.nvidia.com/cuda/cusolver/index.html
 
 extra:
-  skip-lints:
-    - license_file_overspecified
   feedstock-name: {{ name }}
   recipe-maintainers:
     - conda-forge/cuda
