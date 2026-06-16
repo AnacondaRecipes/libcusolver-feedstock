@@ -3,3 +3,7 @@ upstream_sources:
   - webpage:
       url: https://api.anaconda.org/package/conda-forge/libcusolver
       regex: '"version":\s*"([^"]+)"'
+    packages:
+      - libcusolver
+      - libcusolver-dev
+      - libcusolver-static
