@@ -56,12 +56,12 @@ outputs:
         - cuda-version {{ cuda_version }}
         - libcublas
         - libcusparse
-        - libnvjitlink
+        - libnvjitlink =={{ cuda_version }}
       run:
         - {{ pin_compatible("cuda-version", max_pin="x.x") }}
         - libcublas
         - libcusparse
-        - libnvjitlink
+        - {{ pin_compatible("libnvjitlink", max_pin="x.x") }}
       run_constrained:
         - arm-variant * {{ arm_variant_type }}  # [aarch64]
     test:
@@ -176,10 +176,12 @@ outputs:
         - cuda-version {{ cuda_version }}
         - libcublas-static
         - libcusparse-static
+        - libnvjitlink-static =={{ cuda_version }}
       run:
         - {{ pin_compatible("cuda-version", max_pin="x.x") }}
         - libcublas-static
         - libcusparse-static
+        - {{ pin_compatible("libnvjitlink-static", max_pin="x.x") }}
       run_constrained:
         - arm-variant * {{ arm_variant_type }}  # [aarch64]
     test:
@@ -213,6 +215,8 @@ about:
   dev_url: https://docs.nvidia.com/cuda/cusolver/index.html
 
 extra:
+  skip-lints:
+    - deprecate_license_url
   feedstock-name: {{ name }}
   recipe-maintainers:
     - conda-forge/cuda
