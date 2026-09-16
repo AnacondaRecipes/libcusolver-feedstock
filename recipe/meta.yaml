@@ -217,6 +217,8 @@ about:
   dev_url: https://docs.nvidia.com/cuda/cusolver/index.html
 
 extra:
+  skip-lints:
+    - deprecate_license_url
   feedstock-name: {{ name }}
   recipe-maintainers:
     - conda-forge/cuda
